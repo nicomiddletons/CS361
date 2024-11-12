@@ -4,7 +4,7 @@
 package circle;
 
 /**
- * @author ADD YOUR NAME
+ * @author Nico Middleton
  *
  */
 public class DemoCircle {
