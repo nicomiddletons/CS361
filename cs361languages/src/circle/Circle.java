@@ -23,6 +23,13 @@ public class Circle extends GraphicObject {
 	public Circle() {
 	}
 
+	public Circle(double centerX, double centerY, double radius, int windowNumber){
+		this.centerX = centerX;
+		this.centerY = centerY;
+		this.radius = radius;
+		this.windowNumber = windowNumber;
+	}
+
 	// overloaded method in Circle
 	// overridden method from GraphicObject
 	@Override
@@ -52,6 +59,8 @@ public class Circle extends GraphicObject {
 
 	@Override
 	void moveTo(int newX, int newY) {
+		this.centerX = newX;
+		this.centerY = newY;
 	}
 
 	// TODO To complete
@@ -60,7 +69,7 @@ public class Circle extends GraphicObject {
 	 */
 	@Override
 	public String toString() {
-		return super.toString();
+		return "Circle: centerX = " + centerX + ", centerY = " + centerY + ", radius = " + radius;
 	}
 
 	// TODO To complete
@@ -71,16 +80,22 @@ public class Circle extends GraphicObject {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		return super.equals(obj);
+		if(this == obj)
+			return true;
+		if(obj == null || getClass() != obj.getClass())
+			return false;
+
+		Circle other = (Circle) obj;
+		return Double.compare(other.centerX, centerX) == 0 && Double.compare(other.centerY, centerX) == 0 && Double.compare(other.radius, radius) == 0;
 	}
 
 	// TODO To complete
 	/**
 	 * @return an exact copy of the Circle that is a new instance 
 	 */
-	// @Override
-	// protected Object clone() throws CloneNotSupportedException {
-	// return super.clone();
-	// }
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return new Circle(centerX, centerY, radius, windowNumber);
+	}
 
 }

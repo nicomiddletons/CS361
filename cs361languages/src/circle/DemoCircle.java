@@ -54,9 +54,22 @@ public class DemoCircle {
 		c2.radius = 6.0;
 		
 		// TODO print c1 with toString
+		System.out.println("c1: " + c1.toString());
 		// TODO print c2 with toString
+		System.out.println("c2: " + c2.toString());
 		// TODO make a deep copy of c1 with clone and assign it to c3
+		Circle c3 = null;
+		try {
+			c3 = (Circle) c1.clone();
+		} catch (CloneNotSupportedException e) {
+			System.out.println("CloneNotSupportedException occurred");
+		}
 		// TODO write a conditional that checks that c3.equals(c1) is true and print "c3.equals(c1) is true" or "c3.equals(c1) is false" otherwise
+		if (c3 != null && c3.equals(c1)) {
+			System.out.println("c3.equals(c1) is true");
+		} else {
+			System.out.println("c3.equals(c1) is false");
+		}
 
 	}
 
